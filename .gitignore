@@ -22,7 +22,7 @@ bld/
 #[Bb]in/
 [Oo]bj/
 [Ss]creen[Ss]hots/
-#check trigger github
+#check trigger github jenkins
 
 # Visual Studio 2015 cache/options directory
 .vs/
