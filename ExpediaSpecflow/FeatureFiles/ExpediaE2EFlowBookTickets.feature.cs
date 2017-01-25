@@ -68,7 +68,6 @@ namespace ExpediaSpecflow.FeatureFiles
         [NUnit.Framework.CategoryAttribute("Smoke")]
         [NUnit.Framework.CategoryAttribute("High")]
         [NUnit.Framework.TestCaseAttribute("Kiev", "Madrid", "5", "7", "1", "0", "Mr.", "Roman", "Vasylovych", "Soroka", "Ukraine +380", "0637123309", "Ukraine", "349196723071383", "02-Feb", "2019", "505", "Zabolotnogo 30 175", "Kydryashova 14", "Kiev", "03175", "murdok173@ukr.net", new string[0])]
-        [NUnit.Framework.TestCaseAttribute("Berlin", "Paris", "15", "35", "1", "0", "Dr.", "James", "John", "Gran", "Germany +49", "0958392140", "Germany", "5105105105105100", "03-Mar", "2020", "707", "Banshtrasse 40, 65", "Bans 18", "Berlin", "08176", "cready221@gamil.com", new string[0])]
         public virtual void E2EFlowBookTickets(
                     string origCity, 
                     string destCity, 

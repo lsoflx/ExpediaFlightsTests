@@ -112,7 +112,7 @@ namespace ExpediaSpecflow
             searchButton.Click();
         }
 
-        public const string FLIGHTS_BUTTON = "tab-flight-tab";
+        public const string FLIGHTS_BUTTON = "TEST";//""tab-flight-tab";
         public const string ROUND_TRIP_BUTTON = "flight-type-roundtrip-label";
         public const string OROGIN_TEXT_FIELD = "flight-origin";
         public const string DESTINATION_TEXT_FIELD = "flight-destination";

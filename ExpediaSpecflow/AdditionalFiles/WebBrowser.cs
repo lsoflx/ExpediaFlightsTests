@@ -13,11 +13,12 @@ using static NUnit.Framework.TestContext;
 using System.Diagnostics;
 using System.Threading;
 using System.Configuration;
+using System.IO;
 
 namespace ExpediaSpecflow
 {
     [Binding]
-    public class WebBrowser
+    public static class WebBrowser
     {
         public static IWebDriver Current
         {
@@ -67,12 +68,14 @@ namespace ExpediaSpecflow
         {
             if (CurrentContext.Result.Outcome.Status == TestStatus.Failed)
             {
-                Regex clearPathPattern = new Regex("[:+|\"+|\r+|\n+|>+|<+|\0+|\t+|\\+|{+|}+|]+|[+|/+]");                
-                string outComeMessage = clearPathPattern.Replace(CurrentContext.Result.Message, "");
                 Regex testNamePattern = new Regex(@"\((.*?)\)");
                 string testName = testNamePattern.Replace(CurrentContext.Test.Name, "");
+                FileInfo creatDir = new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "Logs\\" + testName + "\\ScreenShots\\");
+                creatDir.Directory.Create();
+                Regex clearPathPattern = new Regex("[:+|\"+|\r+|\n+|>+|<+|\0+|\t+|\\+|{+|}+|]+|[+|/+]");
                 string dateTime = DateTime.Now.ToString("MM-dd-yyyy, hh-mm-ss tt");
-                string fullPath = AppDomain.CurrentDomain.BaseDirectory + "ScreenShots\\" + testName + "(" + dateTime + ")" + outComeMessage;
+                string outComeMessage = clearPathPattern.Replace(CurrentContext.Result.Message, "");                                            
+                string fullPath = AppDomain.CurrentDomain.BaseDirectory + "Logs\\" + testName + "\\ScreenShots\\" + "\\(" + dateTime + ")" + outComeMessage;
                 string pathTrimed = fullPath.Substring(0, Math.Min(fullPath.Length, 240));
                 Current.TakeScreenshot().SaveAsFile(pathTrimed + ".png", ImageFormat.Png);
             }
